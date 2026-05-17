@@ -93,7 +93,7 @@ const Login = () => {
             <GraduationCap size={40} />
           </div>
           <h1 className="text-3xl font-black text-gray-900 tracking-tight">
-            i<span className="text-indigo-600">Student</span>
+            Edu<span className="text-indigo-600">sys</span>
           </h1>
           <p className="text-gray-400 text-sm font-bold uppercase tracking-[0.2em] mt-2">
             Hệ thống quản lý đào tạo

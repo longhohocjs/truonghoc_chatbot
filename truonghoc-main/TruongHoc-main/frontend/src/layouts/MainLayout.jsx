@@ -273,7 +273,7 @@ const MainLayout = () => {
           <span
             className={`text-sm font-bold tracking-[0.15em] text-gray-800 uppercase transition-opacity duration-300 ${isSidebarOpen ? "opacity-100" : "opacity-0 invisible"}`}
           >
-            i<span className="text-indigo-600 font-black">Student</span>
+            Edu<span className="text-indigo-600 font-black">sys</span>
           </span>
         </div>
 

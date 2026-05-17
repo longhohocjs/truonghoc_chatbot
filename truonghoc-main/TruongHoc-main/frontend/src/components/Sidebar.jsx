@@ -60,7 +60,7 @@ const Sidebar = () => {
           className={`px-8 mb-12 transition-all duration-300 ${isCollapsed ? "opacity-0 invisible" : "opacity-100"}`}
         >
           <span className="text-sm font-bold tracking-[0.15em] text-gray-800 uppercase">
-            i<span className="text-indigo-600">Student</span>
+            Edu<span className="text-indigo-600">sys</span>
           </span>
         </div>
 
