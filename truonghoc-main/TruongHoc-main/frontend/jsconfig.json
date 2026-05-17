@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "target": "ESNext"
+  },
+  "include": ["src", "src/pages/Login.jsx"],
+  "exclude": ["node_modules"]
+}

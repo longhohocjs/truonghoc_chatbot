@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Providers;
+
+use App\Models\ThongBao;
+use App\Observers\ThongBaoObserver;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function register(): void
+    {
+        //
+    }
+
+    public function boot(): void
+    {
+        ThongBao::observe(ThongBaoObserver::class);
+    }
+}

@@ -1,0 +1,59 @@
+1. Thêm 
+1.1 Database: XinMoLop.sql 
+phieu_xin_mo_lop
+chi_tiet_phieu
+
+1.2 Chức năng:
+1.2.1 Sinh viên: 
+Xem danh sách Xin mở lớp: GET /xin-mo-lop
+Ghi danh hoặc Tạo mới Phiếu Xin mở lớp: POST /xin-mo-lop/store
+Hủy Phiếu Xin mở lớp: POST /xin-mo-lop/cancel
+
+Xem danh sách năm học và học kỳ: GET /namhoc-hocky
+Thêm mới năm học: POST /nam-hoc/store
+Cập nhật năm học: POST /nam-hoc/update
+Thêm mới học kỳ: POST /hoc-ky/store
+Cập nhật học kỳ: POST /hoc-ky/update
+
+1.2.2 Admin:
+Xem danh sách ngành đào tạo: GET /nganh-dao-tao/list
+Thêm mới ngành đào tạo: POST /nganh-dao-tao/create
+Cập nhật ngành đào tạo: PUT /nganh-dao-tao/update
+Xóa ngành đào tạo: DELETE /nganh-dao-tao/delete
+
+Xem danh sách khoa: GET /khoa/list
+Thêm mới khoa: POST /khoa/create
+Cập nhật khoa: PUT /khoa/update
+Xóa khoa: DELETE /khoa/delete
+
+Xem danh sách các lớp Xin mở lớp chờ gom: GET /xin-mo-lop
+Phê duyệt mở lớp chính thức từ nhóm Xin mở lớp: POST /xin-mo-lop/{nhomId}/approve
+
+1.3 File:
+1.3.1 Model: 
+XinMoLop.php
+ChiTietPhieu.php
+
+1.3.2 Controller: 
+1.3.2.1 Sinh viên: 
+ThongBaoController.php
+XinMoLopController.php
+
+1.3.2.2 Học tập:
+HocKyNamHocController.php
+
+1.3.2.3 Admin:
+NganhDaoTaoController.php
+XinMoLopController.php
+
+1.3.2.4 Service: 
+ThongBaoService.php
+NganhDaoTaoService.php
+HocKyService.php
+NamHocService.php
+KhoaService.php
+XinMoLopService.php
+
+2. Sửa:
+Admin:
+KhoaController.php
