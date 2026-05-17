@@ -167,9 +167,7 @@ const ChatBox = () => {
               </button>
             </form>
             <div className="text-center mt-2">
-              <span className="text-[10px] text-gray-400">
-                AI có thể đưa ra thông tin không chính xác.
-              </span>
+              <span className="text-[10px] text-gray-400"></span>
             </div>
           </div>
         </div>

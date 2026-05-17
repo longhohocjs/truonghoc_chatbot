@@ -63,25 +63,6 @@ class ChatController extends Controller
         
         // --- XỬ LÝ CHO SINH VIÊN ---
         if ($user && $user->isSinhVien()) {
-            $svId = $user->sinhVien ? $user->sinhVien->SinhVienID : null;
-            
-            // Tool 1: Tra cứu đơn xin mở lớp
-            $kwMoLop = ['đơn xin mở lớp', 'xin mở lớp', 'mở lớp', 'don xin mo lop', 'xin mo lop', 'mo lop', 'đơn xin', 'xin mở', 'đã duyệt', 'được duyệt'];
-            foreach ($kwMoLop as $kw) {
-                if (str_contains($mLower, $kw)) {
-                    $responsePayload = $this->chatbotToolsService->traCuuDonXinMoLop($svId);
-                    if (!is_array($responsePayload) || empty($responsePayload['found']) || empty($responsePayload['items'])) {
-                        return response()->json(['success' => true, 'reply' => 'Dạ, hiện tại hệ thống không ghi nhận đơn xin mở lớp nào của bạn ạ.']);
-                    }
-                    $lines = [];
-                    foreach ($responsePayload['items'] as $it) {
-                        $lines[] = "🔹 Môn {$it['ten_mon']}: **{$it['trang_thai']}**";
-                    }
-                    return response()->json(['success' => true, 'reply' => "Dạ, bạn đang có " . count($lines) . " đơn xin mở lớp:\n" . implode("\n", $lines)]);
-                }
-            }
-
-            // KẾT THÚC BƯỚC 2 CỦA SINH VIÊN MÀ VẪN KHÔNG TRÚNG TỪ KHÓA NÀO
             return response()->json([
                 'success' => true,
                 'reply' => "Dạ, em chỉ là bot hỗ trợ theo từ khóa.\n👉 Bạn hãy thử nhập các từ như: lịch học, điểm, gpa, tín chỉ, học phí, môn nợ, đăng ký môn..."

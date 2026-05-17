@@ -57,16 +57,19 @@ class ChatbotService
 
         $actions = [
             // Lịch dạy / thời khóa biểu
-            [['lịch dạy', 'lich day', 'thời khóa biểu', 'thoi khoa bieu', 'tkb', 'lịch giảng dạy', 'lich giang day', 'hôm nay dạy', 'hom nay day', 'tuần này dạy', 'tuan nay day', 'mai dạy', 'mai day', 'khi nào dạy', 'khi nao day', 'dạy môn gì', 'day mon gi', 'dạy lớp nào', 'lịch lên lớp', 'lich len lop', 'dạy tiết', 'day tiet', 'phòng dạy', 'phong day'], 'gvLichDay'],
+            [['lịch dạy', 'lich day', 'thời khóa biểu', 'thoi khoa bieu', 'tkb', 'lịch giảng dạy', 'lich giang day', 'hôm nay dạy', 'hom nay day', 'tuần này dạy', 'tuan nay day', 'mai dạy', 'mai day', 'khi nào dạy', 'khi nao day', 'dạy môn gì', 'day mon gi', 'dạy lớp nào', 'lịch lên lớp', 'lich len lop', 'dạy tiết', 'day tiet', 'phòng dạy', 'phong day', 'phòng bao nhiêu', 'dạy phòng nào', 'lịch giảng', 'giờ lên lớp'], 'gvLichDay'],
 
             // Lịch coi thi / gác thi
-            [['lịch coi thi', 'lich coi thi', 'gác thi', 'gac thi', 'coi thi', 'lịch thi', 'lich thi', 'hôm nay coi thi', 'hom nay coi thi', 'tuần này coi thi', 'tuan nay coi thi', 'mai coi thi', 'khi nào coi thi', 'khi nao coi thi', 'môn thi', 'mon thi', 'phòng thi', 'phong thi', 'trực thi', 'truc thi', 'lịch gác'], 'gvLichCoiThi'],
+            [['lịch coi thi', 'lich coi thi', 'gác thi', 'gac thi', 'coi thi', 'lịch thi', 'lich thi', 'hôm nay coi thi', 'hom nay coi thi', 'tuần này coi thi', 'tuan nay coi thi', 'mai coi thi', 'khi nào coi thi', 'khi nao coi thi', 'môn thi', 'mon thi', 'phòng thi', 'phong thi', 'trực thi', 'truc thi', 'lịch gác', 'giám thị', 'coi thi ở đâu', 'lịch trực thi'], 'gvLichCoiThi'],
 
             // Cố vấn học tập / chủ nhiệm
-            [['cố vấn học tập', 'co van hoc tap', 'cvht', 'cố vấn', 'co van', 'lớp cố vấn', 'lop co van', 'lớp sinh hoạt', 'lop sinh hoat', 'chủ nhiệm', 'chu nhiem', 'lớp chủ nhiệm', 'lop chu nhiem', 'quản lý lớp', 'quan ly lop', 'lớp cn', 'sv lớp'], 'gvLopCoVan'],
+            [['cố vấn học tập', 'co van hoc tap', 'cvht', 'cố vấn', 'co van', 'lớp cố vấn', 'lop co van', 'lớp sinh hoạt', 'lop sinh hoat', 'chủ nhiệm', 'chu nhiem', 'lớp chủ nhiệm', 'lop chu nhiem', 'quản lý lớp', 'quan ly lop', 'lớp cn', 'sv lớp', 'danh sách lớp', 'lớp mình phụ trách'], 'gvLopCoVan'],
 
             // Tra cứu trạng thái nhập điểm
-            [['nhập điểm', 'nhap diem', 'trạng thái nhập điểm', 'trang thai nhap diem', 'tình trạng điểm', 'tinh trang diem', 'vào điểm', 'vao diem', 'kiểm tra điểm', 'kiem tra diem', 'mở điểm', 'mo diem', 'khóa điểm', 'khoa diem', 'đã nhập điểm', 'da nhap diem', 'chưa nhập', 'chua nhap', 'đợt nhập điểm', 'dot nhap diem', 'cho nhập điểm'], 'gvTraCuuNhapDiem'],
+            [['nhập điểm', 'nhap diem', 'trạng thái nhập điểm', 'trang thai nhap diem', 'tình trạng điểm', 'tinh trang diem', 'vào điểm', 'vao diem', 'kiểm tra điểm', 'kiem tra diem', 'mở điểm', 'mo diem', 'khóa điểm', 'khoa diem', 'đã nhập điểm', 'da nhap diem', 'chưa nhập', 'chua nhap', 'đợt nhập điểm', 'dot nhap diem', 'cho nhập điểm', 'vào điểm chưa', 'hạn nhập điểm'], 'gvTraCuuNhapDiem'],
+
+            // HK hiện tại
+            [['học kỳ hiện tại', 'hoc ky hien tai', 'hk hiện tại', 'hk hien tai', 'đang là kỳ mấy', 'dang la ky may', 'học kỳ này', 'hoc ky nay', 'năm học'], 'getHocKyHienTaiInfo'],
 
             // Chào
             [['hello', 'hi', 'xin chào', 'chào', 'chao', 'hey', 'alo', 'chào bot', 'chao bot'], 'helloGV'],
@@ -169,41 +172,44 @@ class ChatbotService
 
         $actions = [
             // Lịch học / thời khóa biểu
-            [['lịch học', 'lich hoc', 'thời khóa biểu', 'thoi khoa bieu', 'tkb', 'hôm nay học gì', 'hom nay hoc gi', 'mai học gì', 'mai hoc gi', 'tuần này học gì', 'tuan nay hoc gi', 'lịch lên lớp', 'lich len lop', 'khi nào đi học', 'khi nao di hoc', 'phòng học', 'phong hoc', 'tiết mấy', 'tiet may', 'học môn gì', 'hoc mon gi'], 'getLichHoc'],
+            [['lịch học', 'lich hoc', 'thời khóa biểu', 'thoi khoa bieu', 'tkb', 'hôm nay học gì', 'hom nay hoc gi', 'mai học gì', 'mai hoc gi', 'tuần này học gì', 'tuan nay hoc gi', 'lịch lên lớp', 'lich len lop', 'khi nào đi học', 'khi nao di hoc', 'phòng học', 'phong hoc', 'tiết mấy', 'tiet may', 'học môn gì', 'hoc mon gi', 'phòng bao nhiêu', 'học ở đâu', 'lịch tuần này', 'lịch ngày mai', 'mấy giờ học'], 'getLichHoc'],
             
             // Lịch thi / coi thi
-            [['lịch thi', 'lich thi', 'thi môn gì', 'thi mon gi', 'phòng thi', 'phong thi', 'lịch thi sắp tới', 'lich thi sap toi', 'ngày thi', 'ngay thi', 'khi nào thi', 'khi nao thi', 'giờ thi', 'gio thi', 'sbd', 'số báo danh', 'so bao danh'], 'getLichThi'],
+            [['lịch thi', 'lich thi', 'thi môn gì', 'thi mon gi', 'phòng thi', 'phong thi', 'lịch thi sắp tới', 'lich thi sap toi', 'ngày thi', 'ngay thi', 'khi nào thi', 'khi nao thi', 'giờ thi', 'gio thi', 'sbd', 'số báo danh', 'so bao danh', 'coi thi', 'lịch kiểm tra', 'phòng thi ở đâu', 'mấy giờ thi'], 'getLichThi'],
             
             // Điểm rèn luyện
-            [['điểm rèn luyện', 'diem ren luyen', 'đrl', 'drl', 'rèn luyện', 'ren luyen', 'xếp loại rèn luyện', 'xep loai ren luyen', 'điểm rl', 'diem rl'], 'getDiemRenLuyen'],
+            [['điểm rèn luyện', 'diem ren luyen', 'đrl', 'drl', 'rèn luyện', 'ren luyen', 'xếp loại rèn luyện', 'xep loai ren luyen', 'điểm rl', 'diem rl', 'loại rèn luyện', 'đạt bao nhiêu điểm rèn luyện'], 'getDiemRenLuyen'],
             
             // Điểm / Bảng điểm / Kết quả học tập
-            [['bảng điểm', 'bang diem', 'xem điểm', 'xem diem', 'kết quả học tập', 'ket qua hoc tap', 'kqht', 'điểm thi', 'diem thi', 'được mấy điểm', 'duoc may diem', 'điểm môn', 'diem mon', 'điểm số', 'diem so', 'qua môn', 'qua mon', 'điểm', 'diem'], 'getDiem'],
+            [['bảng điểm', 'bang diem', 'xem điểm', 'xem diem', 'kết quả học tập', 'ket qua hoc tap', 'kqht', 'điểm thi', 'diem thi', 'được mấy điểm', 'duoc may diem', 'điểm môn', 'diem mon', 'điểm số', 'diem so', 'qua môn', 'qua mon', 'điểm', 'diem', 'tra cứu điểm', 'điểm tổng kết', 'điểm trung bình môn'], 'getDiem'],
             
             // GPA/ĐTB
-            [['gpa', 'đtb', 'dtb', 'điểm trung bình', 'diem trung binh', 'tbc', 'trung bình chung', 'trung binh chung', 'tính điểm', 'tinh diem', 'hệ 4', 'he 4'], 'getGPA'],
+            [['gpa', 'đtb', 'dtb', 'điểm trung bình', 'diem trung binh', 'tbc', 'trung bình chung', 'trung binh chung', 'tính điểm', 'tinh diem', 'hệ 4', 'he 4', 'điểm tích lũy', 'tổng điểm gpa'], 'getGPA'],
             
             // Môn nợ / tạch / rớt
-            [['nợ môn', 'no mon', 'môn nợ', 'mon no', 'môn rớt', 'mon rot', 'rớt môn', 'rot mon', 'học lại', 'hoc lai', 'tạch', 'tach', 'chưa đạt', 'chua dat', 'môn chưa qua', 'mon chua qua', 'thi lại', 'thi lai', 'nợ học phần'], 'getMonNo'],
+            [['nợ môn', 'no mon', 'môn nợ', 'mon no', 'môn rớt', 'mon rot', 'rớt môn', 'rot mon', 'học lại', 'hoc lai', 'tạch', 'tach', 'chưa đạt', 'chua dat', 'môn chưa qua', 'mon chua qua', 'thi lại', 'thi lai', 'nợ học phần', 'cần học lại', 'nợ bao nhiêu môn', 'môn bị rớt'], 'getMonNo'],
             
             // Tín chỉ
-            [['tín chỉ', 'tin chi', 'tc', 'đã tích lũy', 'da tich luy', 'tích lũy', 'tich luy', 'số tín chỉ', 'so tin chi', 'tổng tín chỉ', 'tong tin chi', 'đã học bao nhiêu'], 'getTinChi'],
+            [['tín chỉ', 'tin chi', 'tc', 'đã tích lũy', 'da tich luy', 'tích lũy', 'tich luy', 'số tín chỉ', 'so tin chi', 'tổng tín chỉ', 'tong tin chi', 'đã học bao nhiêu', 'số tc'], 'getTinChi'],
             
             // Học phí / Đóng tiền
-            [['học phí', 'hoc phi', 'hp', 'đóng tiền', 'dong tien', 'nợ tiền', 'no tien', 'còn nợ', 'con no', 'tiền học', 'tien hoc', 'cần đóng bao nhiêu', 'can dong bao nhieu', 'tổng học phí', 'tong hoc phi', 'biên lai', 'bien lai', 'đóng học phí', 'dong hoc phi'], 'getHocPhi'],
+            [['học phí', 'hoc phi', 'hp', 'đóng tiền', 'dong tien', 'nợ tiền', 'no tien', 'còn nợ', 'con no', 'tiền học', 'tien hoc', 'cần đóng bao nhiêu', 'can dong bao nhieu', 'tổng học phí', 'tong hoc phi', 'biên lai', 'bien lai', 'đóng học phí', 'dong hoc phi', 'nộp học phí', 'hạn đóng tiền', 'tiền học kỳ này'], 'getHocPhi'],
             
             // Đăng ký học phần
-            [['đăng ký học phần', 'dang ky hoc phan', 'đkhp', 'dkhp', 'đăng ký môn', 'dang ky mon', 'đkm', 'dkm', 'mở đăng ký', 'mo dang ky', 'đợt đăng ký', 'dot dang ky', 'chọn môn', 'chon mon', 'đăng ký tín chỉ'], 'getDotDangKy'],
+            [['đăng ký học phần', 'dang ky hoc phan', 'đkhp', 'dkhp', 'đăng ký môn', 'dang ky mon', 'đkm', 'dkm', 'mở đăng ký', 'mo dang ky', 'đợt đăng ký', 'dot dang ky', 'chọn môn', 'chon mon', 'đăng ký tín chỉ', 'lịch đăng ký môn'], 'getDotDangKy'],
             
             // Gợi ý môn học
-            [['gợi ý môn', 'goi y mon', 'gợi ý học tập', 'goi y hoc tap', 'nên học môn gì', 'nen hoc mon gi', 'kỳ tới học gì', 'ky toi hoc gi', 'môn tiếp theo', 'mon tiep theo', 'nên đăng ký môn', 'nen dang ky mon'], 'getGoiYHocTap'],
+            [['gợi ý môn', 'goi y mon', 'gợi ý học tập', 'goi y hoc tap', 'nên học môn gì', 'nen hoc mon gi', 'kỳ tới học gì', 'ky toi hoc gi', 'môn tiếp theo', 'mon tiep theo', 'nên đăng ký môn', 'nen dang ky mon', 'tư vấn học tập'], 'getGoiYHocTap'],
             
             // Cảnh báo học vụ
-            [['cảnh báo học vụ', 'canh bao hoc vu', 'cbhv', 'nguy cơ', 'nguy co', 'bị cảnh báo', 'bi canh bao', 'đuổi học', 'duoi hoc', 'thôi học', 'thoi hoc'], 'getCanhBaoHocVu'],
+            [['cảnh báo học vụ', 'canh bao hoc vu', 'cbhv', 'nguy cơ', 'nguy co', 'bị cảnh báo', 'bi canh bao', 'đuổi học', 'duoi hoc', 'thôi học', 'thoi hoc', 'xử lý học vụ', 'bị đình chỉ'], 'getCanhBaoHocVu'],
             
             // TIẾN ĐỘ TỐT NGHIỆP / CÒN THIẾU / HOÀN THÀNH (Đã bổ sung từ khóa của bạn vào đây)
-            [['tiến độ tốt nghiệp', 'tien do tot nghiep', 'tiến độ', 'tien do', 'khi nào ra trường', 'khi nao ra truong', 'bao giờ tốt nghiệp', 'bao gio tot nghiep', 'còn mấy môn', 'con may mon', 'còn bao nhiêu môn', 'con bao nhieu mon', 'thiếu mấy môn', 'thieu may mon', 'sắp ra trường', 'sap ra truong', 'hoàn thành', 'hoan thanh', 'hoành thành', 'còn thiếu', 'con thieu', 'thiéu', 'môn đã học', 'mon da hoc', 'chưa học', 'chua hoc'], 'getTienDoTotNghiep'],
+            [['tiến độ tốt nghiệp', 'tien do tot nghiep', 'tiến độ', 'tien do', 'khi nào ra trường', 'khi nao ra truong', 'bao giờ tốt nghiệp', 'bao gio tot nghiep', 'còn mấy môn', 'con may mon', 'còn bao nhiêu môn', 'con bao nhieu mon', 'thiếu mấy môn', 'thieu may mon', 'sắp ra trường', 'sap ra truong', 'hoàn thành', 'hoan thanh', 'hoành thành', 'còn thiếu', 'con thieu', 'thiéu', 'môn đã học', 'mon da hoc', 'chưa học', 'chua hoc', 'tích lũy môn', 'đã hoàn thành bao nhiêu'], 'getTienDoTotNghiep'],
             
+            // Tra cứu đơn xin mở lớp (Di chuyển từ controller vào service)
+            [['đơn xin mở lớp', 'xin mở lớp', 'mở lớp', 'don xin mo lop', 'xin mo lop', 'mo lop', 'đơn xin', 'xin mở', 'đã duyệt', 'được duyệt'], 'getDonXinMoLop'],
+
             // HK hiện tại
             [['học kỳ hiện tại', 'hoc ky hien tai', 'hk hiện tại', 'hk hien tai', 'đang là kỳ mấy', 'dang la ky may', 'học kỳ này', 'hoc ky nay'], 'getHocKyHienTaiInfo'],
             
@@ -309,6 +315,22 @@ class ChatbotService
         $gpa = $this->getGPAValue($sv);
         if ($gpa == 0) return "📭 Bạn chưa có dữ liệu điểm để tính GPA.";
         return "🎓 GPA hệ 4 hiện tại của bạn: **{$gpa}/4.0**";
+    }
+
+    private function getDonXinMoLop($sv)
+    {
+        $service = app(\App\Services\ChatbotToolsService::class);
+        $res = $service->traCuuDonXinMoLop($sv->SinhVienID);
+
+        if (empty($res['found']) || empty($res['items'])) {
+            return "Dạ, hiện tại hệ thống không ghi nhận đơn xin mở lớp nào của bạn ạ.";
+        }
+
+        $lines = [];
+        foreach ($res['items'] as $it) {
+            $lines[] = "🔹 Môn {$it['ten_mon']}: **{$it['trang_thai']}**";
+        }
+        return "Dạ, bạn đang có " . count($lines) . " đơn xin mở lớp:\n" . implode("\n", $lines);
     }
 
     private function getMonNo($sv)
