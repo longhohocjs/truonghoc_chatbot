@@ -156,11 +156,6 @@ const MainLayout = () => {
     ],
     giangvien: [
       {
-        path: "/dashboard",
-        label: "Tổng quan",
-        icon: <LayoutDashboard size={18} />,
-      },
-      {
         path: "/giang-vien/profile",
         label: "Hồ sơ cá nhân",
         icon: <UserCircle size={18} />,
